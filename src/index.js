@@ -1,5 +1,17 @@
-//import { Person } from "./es6_13_Person";
-//import Person from "./es6_13_Person";
-import Person, { myFunction } from "./es6_13_Person";
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.jsx";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import todoApp from "./reducers/reducers";
 
-const person = new Person();
+let store = createStore(todoApp);
+let rootElement = document.getElementById("root");
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+
+  rootElement
+);
